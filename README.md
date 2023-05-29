@@ -1,13 +1,6 @@
 # Mise en oeuvre d'un micro-service 
 
 
-### Dépendances :
-- Spring Web
-- Spring Data JPA
-- Spring GraphQL
-- H2 Database
-- Lombok
-
 ## Entities :
 - BankAccount
 ```java
@@ -77,16 +70,15 @@ public class AccountMapper {
 
 ```
 
-## Création du service DAO
-On crée le package `com.example.bankaccount.service` et on y ajoute l'interface suivante :
-- AccountService
+## Service DAO
+##### - AccountService
 ```java
 public interface AccountService {
     BankAccountResponseDTO addAccount(BankAccountRequestDTO bankAccountDTO);
 }
 ```
-On crée ensuite l'implémentation de cette interface :
-- AccountServiceImpl
+
+#### - AccountServiceImpl
 ```java
 @Service
 @Transactional
@@ -111,7 +103,7 @@ public class AccountServiceImpl implements AccountService {
 
 ```
 
-- AccountRestController
+##### - AccountRestController
 ```java
 @RestController
 @RequestMapping("/api")
@@ -155,7 +147,7 @@ public class AccountRestController {
 ```
 
 
-- schema.graphqls
+#### - schema.graphqls
 ```graphql
 type Query {
     accountsList: [BankAccount]
